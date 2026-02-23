@@ -130,7 +130,7 @@ const employeeData = [
 ];
 
 export default function App() {
-  // search query text
+  // search query
   const [query, setQuery] = useState("");
 
   // currently selected employee id (or null)
@@ -139,13 +139,13 @@ export default function App() {
     return preActive?.id ?? null;
   });
 
-  // derive selected employee
+  // get selected employee
   const selectedEmployee = useMemo(
     () => employeeData.find((e) => e.id === activeId) ?? null,
     [activeId]
   );
 
-  // filter employees by query (first name, last name, title, dept)
+  //search query for employees (first name, last name, title, dept)
   const employees = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return employeeData;
